@@ -5,34 +5,44 @@
 //  Created by Mehmet Alp Sönmez on 12/06/2024.
 //
 
+import SwiftData
 import SwiftUI
 
-struct PushButton: View {
-    let title: String
-    @Binding var isOn: Bool
-    
-    var onColours = [Color.red, Color.yellow]
-    var offColours = [Color(white: 0.6), Color(white: 0.41)]
-    
-    var body: some View {
-        Button(title) {
-            isOn.toggle()
-        }
-        .padding()
-        .background(LinearGradient(colors: isOn ? onColours : offColours, startPoint: .top, endPoint: .bottom))
-        .foregroundStyle(.white)
-        .clipShape(.capsule)
-        .shadow(radius: isOn ? 0 : 5)
-        
-    }
-}
-
 struct ContentView: View {
-    @State private var rememberMe = false
+    @Environment(\.modelContext) var modelContext
+    @Query  var books: [Book]
+    
+    @State private var showingAddScreen = false
+    
     var body: some View {
-        VStack {
-            PushButton(title: "Remember Me", isOn: $rememberMe)
-            Text(rememberMe ? "ON" : "OFF")
+        NavigationStack {
+            List {
+                ForEach(books) { book in
+                    NavigationLink(value: book) {
+                        HStack {
+                            EmojiRatingView(rating: book.rating)
+                                .font(.largeTitle)
+                            VStack(alignment: .leading) {
+                                Text(book.title)
+                                    .font(.headline)
+                                Text(book.author)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Bookworm")
+            .toolbar {
+                ToolbarItem( placement: .topBarTrailing) {
+                    Button("Add Book", systemImage: "plus") {
+                        showingAddScreen.toggle()
+                    }
+                }
+            }
+            .sheet(isPresented: $showingAddScreen) {
+                AddBookView()
+            }
         }
     }
 }
