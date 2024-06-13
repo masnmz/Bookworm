@@ -1,8 +1,7 @@
 Bookworm app has been designed as www.hackingwithswift.com tutorial. Bookworm is a personal book review app. Users could enter the title, author,
 genre, their review and rating score for the book they read. SwiftData, @Binding, Date, @Enviroment, TextEditor has been used in this app.
 
-When the users tap to "+" button at the right top corner of the screen, book adding sheet opens and users enter book's information and enter their 
-own rating and review. The app has rating system between 1 and 5. Each rating has different emojis to show on the list.
+When the users tap to "+" button at the right top corner of the screen, book adding sheet opens and users enter book's information and enter their own rating and review. The app has rating system between 1 and 5. Each rating has different emojis to show on the list.
 
 ![Simulator Screen Recording - iPhone 15 Pro Max - 2024-06-13 at 14 01 44](https://github.com/masnmz/Bookworm/assets/101047936/3a3a6eb6-1264-4835-83ef-754d5d7576dd)
 
@@ -16,11 +15,13 @@ If the user gives 1 star rating to the book, the books title and author are show
 
 When users tap the a book's row, they can see the details of the book and their review and a representative image of the book's genre.
 If a user do not enter any review, default text which is "Book has no review" is shown to the users.
+
 ![Simulator Screen Recording - iPhone 15 Pro Max - 2024-06-13 at 14 19 03](https://github.com/masnmz/Bookworm/assets/101047936/a915c1c9-fc04-4357-a92e-082c87d25b7b)
 
 Query is sorted by book title and then by author. If books have same title, they are sorted by authors. 
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2024-06-13 at 14 34 42](https://github.com/masnmz/Bookworm/assets/101047936/9b6ae05f-cd5b-4187-ac6e-c1ad1c683c42)
+![Simulator Screen Recording - iPhone 15 Pro Max - 2024-06-13 at 14 45 45](https://github.com/masnmz/Bookworm/assets/101047936/0647ad98-48ce-4ba5-8d4e-17743f2b3563)
+
 
 Users can delete a book in three ways. As the first way, users could drag the book's to left. Secondly, when users tap to edit button, tap to
 delete symbol on the book's row and then tap delete. As the final way, users can delete books on detail view screen by tapping trash icon. 
