@@ -21,7 +21,7 @@ struct AddBookView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section {
                     TextField("Name of book", text: $title)
                     TextField("Author's name", text: $author)
@@ -32,11 +32,13 @@ struct AddBookView: View {
                         }
                     }
                 }
+                .listRowBackground(Color.lightBackground)
                 
                 Section("Write a Review") {
                     TextEditor(text: $review)
                     RatingView(rating: $rating)
                 }
+                .listRowBackground(Color.lightBackground)
                 
                 Section {
                     Button("Save") {
@@ -49,9 +51,13 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .listRowBackground(Color.lightBackground)
                 .disabled(validBook(title: title, author: author) == false)
             }
             .navigationTitle("Add Book")
+            .scrollContentBackground(.hidden)
+            .background(Color.darkBackGround)
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
         }
     }
     func validBook(title: String, author: String) -> Bool {

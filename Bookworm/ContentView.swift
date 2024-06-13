@@ -36,6 +36,8 @@ struct ContentView: View {
                     }
                 }
                 .onDelete(perform: deleteBooks)
+                .listRowBackground(Color.lightBackground)
+
             }
             .navigationTitle("Bookworm")
             .navigationDestination(for: Book.self) { book in
@@ -56,7 +58,11 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddScreen) {
                 AddBookView()
             }
+            .scrollContentBackground(.hidden)
+            .background(.darkBackGround)
+            .preferredColorScheme(.dark)
         }
+
     }
     
     func deleteBooks(at offsets: IndexSet) {

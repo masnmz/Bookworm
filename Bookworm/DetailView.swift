@@ -38,11 +38,18 @@ struct DetailView: View {
             
             RatingView(rating: .constant(book.rating))
                 .font(.largeTitle)
+                .padding()
+            HStack{
+                Text("The book is added on:")
+                Text(book.date, format: .dateTime.day().month().year())
+            }
             
         }
         .navigationTitle(book.title)
         .navigationBarTitleDisplayMode(.inline)
         .scrollBounceBehavior(.basedOnSize)
+        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        .background(Color.lightBackground)
         .alert("Delete Book", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive, action: deleteBook)
             Button("Cancel", role: .cancel) { }
