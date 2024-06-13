@@ -40,14 +40,25 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
-                        let newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating)
+                        var newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating)
+                        if review.isEmpty {
+                            review = newBook.noReview(review: review)
+                            newBook = Book(title: title, author: author, genre: genre, review: review, rating: rating)
+                        }
                         modelContext.insert(newBook)
                         dismiss()
                     }
                 }
+                .disabled(validBook(title: title, author: author) == false)
             }
             .navigationTitle("Add Book")
         }
+    }
+    func validBook(title: String, author: String) -> Bool {
+        if title.isEmpty || author.isEmpty || title.count < 2 || author.count < 2 {
+            return false
+        }
+        return true
     }
 }
 

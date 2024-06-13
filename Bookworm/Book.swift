@@ -23,4 +23,14 @@ class Book {
         self.review = review
         self.rating = rating
     }
+    
+    func noReview(review: String) -> String {
+        var review = review
+        if review.isEmpty {
+            review = "Book has no reviews"
+            return review
+        }
+        return review
+    }
+    
 }
