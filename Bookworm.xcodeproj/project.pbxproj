@@ -47,7 +47,6 @@
 		D532133F2C19D576000C4E1F = {
 			isa = PBXGroup;
 			children = (
-				D5BE1E762C1B1CF60014DD7C /* Colour-Theme.swift */,
 				D532134A2C19D576000C4E1F /* Bookworm */,
 				D53213492C19D576000C4E1F /* Products */,
 			);
@@ -69,6 +68,7 @@
 				D5BE1E702C1A028B0014DD7C /* RatingView.swift */,
 				D5BE1E722C1A0FCD0014DD7C /* EmojiRatingView.swift */,
 				D532135B2C19F90D000C4E1F /* Book.swift */,
+				D5BE1E762C1B1CF60014DD7C /* Colour-Theme.swift */,
 				D532134D2C19D576000C4E1F /* ContentView.swift */,
 				D5BE1E742C1A3F370014DD7C /* DetailView.swift */,
 				D532134F2C19D578000C4E1F /* Assets.xcassets */,
